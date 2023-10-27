@@ -1,2 +1,5 @@
 credensial.json
 *.txt
+*/.terraform
+*.hcl
+*.tfstate

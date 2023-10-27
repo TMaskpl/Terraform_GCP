@@ -1,4 +1,4 @@
-resource "localfile" "" {
+resource "local_file" "f_example" {
     filename = var.f_name
     content = var.f_cont
     file_permission = var.f_perms
