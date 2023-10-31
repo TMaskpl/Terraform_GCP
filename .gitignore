@@ -4,3 +4,4 @@ credensial.json
 *.hcl
 *.tfstate
 *.tfstate.backup
+*/.vscode
