@@ -21,3 +21,7 @@ resource "google_storage_object_access_control" "view-rule" {
     role = "READER"
     entity = "allUsers"
 }
+
+output "result1" {
+    value = google_storage_bucket_object.gcp-object.media_link
+}
