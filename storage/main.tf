@@ -7,6 +7,15 @@ resource "google_storage_bucket" "bucket-from-tf1" {
     }
     storage_class = "NEARLINE"
     uniform_bucket_level_access = false
+    lifecycle_rule {
+        condition {
+            age = 20
+        }
+        action {
+            type = "SetStorageClass"
+            storage_class = "ARCHIVE"
+        }
+    }
 }
 
 resource "google_storage_bucket_object" "gcp-object" {
@@ -22,6 +31,6 @@ resource "google_storage_object_access_control" "view-rule" {
     entity = "allUsers"
 }
 
-output "result1" {
+output "web_link" {
     value = google_storage_bucket_object.gcp-object.media_link
 }
