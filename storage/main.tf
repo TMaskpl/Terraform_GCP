@@ -16,6 +16,9 @@ resource "google_storage_bucket" "bucket-from-tf1" {
             storage_class = "ARCHIVE"
         }
     }
+    retention_policy {
+        retention_period = 86400
+    }
 }
 
 resource "google_storage_bucket_object" "gcp-object" {
