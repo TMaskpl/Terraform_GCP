@@ -12,7 +12,7 @@ resource "google_compute_subnetwork" "network-europe-central2" {
     name          = "network-europe-central2"
     ip_cidr_range = "172.16.88.0/24"
     region        = "europe-central2"
-    network       = google_compute_network.custom-vpc
+    network       = google_compute_network.custom-vpc.id
 }
 
 output "auto" {
