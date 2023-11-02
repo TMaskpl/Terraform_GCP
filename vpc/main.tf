@@ -17,7 +17,7 @@ resource "google_compute_subnetwork" "network-europe-central2" {
 
 resource "google_compute_firewall" "allow-icmp" {
     name    = "allow-icmp"
-    network = google_compute_network.default.name
+    network = google_compute_network.custom-vpc.id
 
     allow {
         protocol = "icmp"
