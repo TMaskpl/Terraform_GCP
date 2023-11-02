@@ -15,6 +15,18 @@ resource "google_compute_subnetwork" "network-europe-central2" {
     network       = google_compute_network.custom-vpc.id
 }
 
+resource "google_compute_firewall" "allow-icmp" {
+    name    = "allow-icmp"
+    network = google_compute_network.default.name
+
+    allow {
+        protocol = "icmp"
+    }
+
+    source_ranges = ["178.218.232.65/32"]
+    priority = 500
+}
+
 output "auto" {
     value = google_compute_network.auto-vpc.id
 }
