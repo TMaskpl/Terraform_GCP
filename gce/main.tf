@@ -4,7 +4,6 @@ resource "google_compute_instance" "vm-from-tf" {
     machine_type = var.machine_t
     tags = ["terraform", "tmask"]
 
-
     boot_disk {
         initialize_params {
         image = "debian-cloud/debian-11"
@@ -21,11 +20,10 @@ resource "google_compute_instance" "vm-from-tf" {
 }
 
 resource "local_file" "ext-ip-f" {
-  content  = "${google_compute_instance.vm-from-tf.network_interface.0.access_config.0.nat_ip}"
-  filename = "ip.json"
+    content  = "${google_compute_instance.vm-from-tf.network_interface.0.access_config.0.nat_ip}"
+    filename = "hosts"
 }
 
 output "ext-ip" {
   value = "${google_compute_instance.vm-from-tf.network_interface.0.access_config.0.nat_ip}"
 }
-
