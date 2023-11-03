@@ -25,5 +25,5 @@ resource "local_file" "ext-ip-f" {
 }
 
 output "ext-ip" {
-  value = "${google_compute_instance.vm-from-tf.network_interface.0.access_config.0.nat_ip}"
+    value = "${google_compute_instance.vm-from-tf.network_interface.0.access_config.0.nat_ip}"
 }
