@@ -29,3 +29,13 @@ variable "ssh_user" {
   default     = "tmask"
   sensitive   = false
 }
+
+variable "cloudflare_api_token" {
+  type = string
+  default = ""
+}
+
+variable "dns_zone" {
+  type = string
+  default = "tmask.pl"
+}

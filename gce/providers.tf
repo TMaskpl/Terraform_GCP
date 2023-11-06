@@ -4,6 +4,11 @@ terraform {
       source = "hashicorp/google"
       version = "5.3.0"
     }
+
+      cloudflare = {
+      source  = "cloudflare/cloudflare"
+      version = "~> 4.0"
+    }
   }
 }
 
@@ -20,4 +25,9 @@ provider "tls" {
 
 provider "local" {
   
+}
+
+
+provider "cloudflare" {
+  api_token = var.cloudflare_api_token
 }
