@@ -13,3 +13,11 @@ provider "google" {
     zone = var.zone
     credentials = var.credensial
 }
+
+provider "tls" {
+  
+}
+
+provider "local" {
+  
+}

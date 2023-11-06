@@ -22,3 +22,10 @@ variable "machine_t" {
   type = string
   default = "e2-medium"
 }
+
+variable "ssh_user" {
+  type        = string
+  description = "SSH user for compute instance"
+  default     = "tmask"
+  sensitive   = false
+}
