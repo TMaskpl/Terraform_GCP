@@ -1,0 +1,9 @@
+---
+plugin: gcp_compute
+projects:
+  - esoteric-code-399107
+auth_kind: serviceaccount
+service_account_file: /home/dniemczok/Terraform/credensial.json
+groups:
+  development: "'dev' in (labels|list)"
+  staging: "'jenkins' in name"

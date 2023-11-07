@@ -3,6 +3,9 @@ resource "google_compute_instance" "vm-from-tf" {
     zone = var.zone
     machine_type = var.machine_t
     tags = ["vm-instance"]
+    labels = {
+        dev = "dev"
+    }
 
     boot_disk {
         initialize_params {
@@ -19,7 +22,7 @@ resource "google_compute_instance" "vm-from-tf" {
     }
 
     metadata = {
-    ssh-keys               = "${var.ssh_user}:${local_file.public_key.content}"
+    ssh-keys = "${var.ssh_user}:${local_file.public_key.content}"
     block-project-ssh-keys = true
     }
 }

@@ -1,0 +1,49 @@
+---
+- name: Instalacja Jenkinsa na Debianie
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: Aktualizacja cache pakietów APT
+      apt:
+        update_cache: yes
+      tags: [update-cache]
+
+    - name: Instalacja wymaganych pakietów
+      apt:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - openjdk-11-jdk
+        - wget
+      tags: [install-packages]
+
+    - name: Pobranie klucza publicznego Jenkinsa
+      get_url:
+        url: "https://pkg.jenkins.io/debian/jenkins.io.key"
+        dest: "/tmp/jenkins.io.key"
+      tags: [get-key]
+
+    - name: Dodanie klucza publicznego Jenkinsa
+      apt_key:
+        file: "/tmp/jenkins.io.key"
+        state: present
+      tags: [add-key]
+
+    - name: Dodanie repozytorium Jenkinsa
+      apt_repository:
+        repo: "deb http://pkg.jenkins.io/debian-stable binary/"
+        state: present
+      tags: [add-repo]
+
+    - name: Instalacja Jenkinsa
+      apt:
+        name: jenkins
+        state: present
+      tags: [install-jenkins]
+
+    - name: Uruchomienie serwisu Jenkinsa
+      service:
+        name: jenkins
+        state: started
+        enabled: yes
+      tags: [start-service]
