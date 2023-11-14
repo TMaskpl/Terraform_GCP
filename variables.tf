@@ -28,21 +28,21 @@ variable "machine_t" {
   default = "e2-medium"
 }
 
-variable "ssh_user" {
-  type        = string
-  description = "SSH user for compute instance"
-  default     = "tmask"
-  sensitive   = false
-}
+# variable "ssh_user" {
+#   type        = string
+#   description = "SSH user for compute instance"
+#   default     = "tmask"
+#   sensitive   = false
+# }
 
-variable "cloudflare_api_token" {
-  description = "API token do Cloadflare"
-  type = string
-  default = var.cloudflare_api_token
-}
+# variable "cloudflare_api_token" {
+#   description = "API token do Cloadflare"
+#   type = string
+#   default = var.cloudflare_api_token
+# }
 
-variable "dns_zone" {
-  description = "Zona w Cloadflare"
-  type = string
-  default = "tmask.pl"
-}
+# variable "dns_zone" {
+#   description = "Zona w Cloadflare"
+#   type = string
+#   default = "tmask.pl"
+# }
