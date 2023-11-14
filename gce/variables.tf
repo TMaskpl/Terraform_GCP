@@ -38,7 +38,7 @@ variable "ssh_user" {
 variable "cloudflare_api_token" {
   description = "API token do Cloadflare"
   type = string
-  default = ""
+  default = var.cloudflare_api_token
 }
 
 variable "dns_zone" {

@@ -1,6 +1,6 @@
 ---
 - name: Instalacja Jenkinsa na Debianie
-  hosts: localhost
+  hosts: development
   become: yes
   tasks:
     - name: Aktualizacja cache pakietów APT
